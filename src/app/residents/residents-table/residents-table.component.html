@@ -7,61 +7,95 @@
         <h6 class="m-0 font-weight-bold text-primary">Dados dos Moradores</h6>
     </div>
     <div class="card-body">
+
+      <div class="my-2"></div>
+      <a href="#" data-toggle="modal" data-target="#saveResidentModal" class="btn btn-success btn-icon-split">
+        <span class="icon text-white-50">
+          <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Cadastrar Morador</span>
+      </a>
+      <div class="my-4"></div>
+
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Apartment</th>
+                        <th>Block</th>
+                        <th>Data de Registro</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td>22</td>
-                        <td>2012/03/29</td>
-                        <td>$433,060</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>33</td>
-                        <td>2008/11/28</td>
-                        <td>$162,700</td>
+                    <tr *ngFor="let resident of residents">
+                        <td>{{resident.name}}</td>
+                        <td>{{resident.cpf}}</td>
+                        <td>{{resident.email}}</td>
+                        <td>{{resident.apartment}}</td>
+                        <td>{{resident.block}}</td>
+                        <td>{{resident.registrationDate}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+
+
+<!--Modal cadastro de Moradores-->
+<div class="modal fade bd-example-modal-xl" id="saveResidentModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Morador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form method="POST" action="#">
+
+          <div class="form-row">
+            <div class="form-group col-md-6"> <!--classe sistema de grid-->
+              <label class="form-label">Nome:</label>
+              <input class="form-control" type="text">
+            </div>
+
+            <div class="form-group col-md-6"> <!--classe sistema de grid-->
+              <label class="form-label">CPF:</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12"> <!--classe sistema de grid-->
+              <label class="form-label">Email:</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4"> <!--classe sistema de grid-->
+              <label class="form-label">Apartment:</label>
+              <input class="form-control" type="text">
+            </div>
+            <div class="form-group col-md-4"> <!--classe sistema de grid-->
+              <label class="form-label">Block:</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
 </div>
