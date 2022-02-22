@@ -1,0 +1,21 @@
+.card{
+  width: 18rem;
+}
+
+.card-img-top{
+  height: 15rem;
+  /* filter: ; */
+}
+
+.card-image{
+  display: flex;
+  justify-content: center;
+}
+
+.fa-color-red{
+  color: rgb(241, 94, 94);
+}
+
+.fa-color-green{
+  color: rgb(190, 235, 122);
+}

@@ -1,0 +1,49 @@
+<h1 class="h3 mb-2 text-gray-800">Vagas de Estacionamento</h1>
+<p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem ab, veniam ut dolores consectetur
+  autem inventore necessitatibus provident eaque molestias aperiam !</p>
+
+  <a href="#" data-toggle="modal" data-target="#saveResidentModal" class="btn btn-success btn-icon-split mb-4">
+    <span class="icon text-white-50">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Cadastrar Vaga</span>
+  </a>
+
+<div class="row">
+
+  <div class="card mr-5 mb-5" *ngFor="let parkingSpot of parkingSpots">
+
+    <div class="card-image" *ngIf="parkingSpot.residentCar != null">
+      <a href="" class="">
+        <i class="fas fa-fw fa-car fa-10x fa-color-red"></i>
+      </a>
+    </div>
+
+    <div class="card-image" *ngIf="parkingSpot.residentCar == null">
+      <a href="" class="">
+        <i class="fas fa-fw fa-car fa-10x fa-color-green"></i>
+      </a>
+    </div>
+
+    <div class="card-header">
+      <h5 class="card-title">Vaga {{ parkingSpot.parkingSpotNumber }}</h5>
+    </div>
+
+    <div class="card-body">
+      <p *ngIf="parkingSpot.residentCar != null"><strong>Ocupado por:</strong> {{ parkingSpot.residentCar.responsibleName }}<br>
+      <strong>Placa:</strong> {{parkingSpot.residentCar.licensePlateCar}}</p>
+      <p *ngIf="parkingSpot.residentCar == null"><strong>Disponível</strong></p>
+
+      <a href="" class="btn btn-success">
+        <span class="icon text-white-50">
+          <i class="fas fa-plus"></i>
+        </span>
+      </a>
+
+    </div>
+
+  </div>
+
+
+</div>
+<!-- <img class="card-img-top" src="../../../assets/img/3914609-200.png" alt=""> -->

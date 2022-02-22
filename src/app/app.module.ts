@@ -1,3 +1,4 @@
+import { ParkingSpotModule } from './parking-spot/parking-spot.module';
 import { ResidentsModule } from './residents/residents.module';
 import { TemplateModule } from './template/template.module';
 import { NgModule } from '@angular/core';
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     TemplateModule,
     ResidentsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ParkingSpotModule
   ],
   providers: [],
   bootstrap: [AppComponent]

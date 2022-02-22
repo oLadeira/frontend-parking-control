@@ -60,11 +60,16 @@
 
         <form #residentForm="ngForm" (ngSubmit)="saveResident()">
 
-          <!--Retorno ao usuário-->
+          <!-----------------Retorno ao usuário---------------------->
           <div class="alert alert-danger" *ngFor="let error of errors">
             <strong>Campo:</strong> {{error.fieldName}} <br>
             <strong>Erro:</strong> {{error.message}}
           </div>
+
+          <div class="alert alert-success" *ngIf="success">
+            Morador cadastrado com sucesso
+          </div>
+          <!---------------------------------------------------------->
 
           <div class="form-row">
             <div class="form-group col-md-6"> <!--classe sistema de grid-->
