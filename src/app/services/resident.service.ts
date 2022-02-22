@@ -18,4 +18,8 @@ export class ResidentService {
     return this.http.get<PageResident>(`${this.baseUrl}/api/resident/`)
   }
 
+  saveResident(resident: Resident): Observable<Resident>{
+    return this.http.post<Resident>(`${this.baseUrl}/api/resident`, resident)
+  }
+
 }

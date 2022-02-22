@@ -7,5 +7,4 @@ export class Resident{
   apartment!: string;
   block!: string;
   registrationDate!: string;
-  residentCar!: ResidentCar;
 }
