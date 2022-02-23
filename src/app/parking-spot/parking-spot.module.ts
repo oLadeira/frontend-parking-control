@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ParkingSpotRoutingModule } from './parking-spot-routing.module';
 import { ParkingSpotListComponent } from './parking-spot-list/parking-spot-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ParkingSpotListComponent } from './parking-spot-list/parking-spot-list.
   ],
   imports: [
     CommonModule,
-    ParkingSpotRoutingModule
+    ParkingSpotRoutingModule,
+    FormsModule
   ]
 })
 export class ParkingSpotModule { }

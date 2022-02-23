@@ -1,3 +1,4 @@
+import { ParkingSpot } from './../parking-spot/parkingSpot';
 import { PageParkingSpot } from './../parking-spot/pageParkingSpot';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
@@ -14,8 +15,11 @@ export class ParkingSpotService {
   constructor(private http:HttpClient ) { }
 
   getAllParkingSpots(): Observable<PageParkingSpot>{
-    return this.http.get<PageParkingSpot>(`${this.baseUrl}/api/parking-spot/?page=0&size=10&direction=ASC&sort=status,DESC`);
+    return this.http.get<PageParkingSpot>(`${this.baseUrl}/api/parking-spot/?page=0&size=20&direction=ASC&sort=status,DESC&sort=parkingSpotNumber,ASC`);
   }
 
+  saveParkingSpot(parkingSpot:ParkingSpot): Observable<ParkingSpot>{
+    return this.http.post<ParkingSpot>(`${this.baseUrl}/api/parking-spot`, parkingSpot);
+  }
 
 }

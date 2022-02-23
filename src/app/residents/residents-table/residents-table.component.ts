@@ -1,4 +1,4 @@
-import { FieldError } from './../fieldError';
+import { FieldError } from '../../fieldError';
 import { PageResident } from './../pageResident';
 import { ResidentService } from './../../services/resident.service';
 import { Component, OnInit } from '@angular/core';
