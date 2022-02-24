@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     ResidentsModule,
     HttpClientModule,
     FormsModule,
-    ParkingSpotModule
+    ParkingSpotModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,6 +18,10 @@ export class ParkingSpotService {
     return this.http.get<PageParkingSpot>(`${this.baseUrl}/api/parking-spot/?page=0&size=20&direction=ASC&sort=status,DESC&sort=parkingSpotNumber,ASC`);
   }
 
+  getByIdParkingSpot(id:string): Observable<ParkingSpot>{
+    return this.http.get<ParkingSpot>(`${this.baseUrl}/api/parking-spot/${id}`);
+  }
+
   saveParkingSpot(parkingSpot:ParkingSpot): Observable<ParkingSpot>{
     return this.http.post<ParkingSpot>(`${this.baseUrl}/api/parking-spot`, parkingSpot);
   }

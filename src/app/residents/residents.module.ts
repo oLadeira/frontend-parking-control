@@ -4,19 +4,24 @@ import { CommonModule } from '@angular/common';
 import { ResidentsRoutingModule } from './residents-routing.module';
 import { ResidentsTableComponent } from './residents-table/residents-table.component';
 import { FormsModule } from '@angular/forms';
+import { ResidentEditModalComponent } from './resident-edit-modal/resident-edit-modal.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     ResidentsTableComponent,
+    ResidentEditModalComponent,
   ],
   imports: [
     CommonModule,
     ResidentsRoutingModule,
+    RouterModule,
     FormsModule
   ],
   exports: [
-    ResidentsTableComponent
+    ResidentsTableComponent,
+    ResidentEditModalComponent
   ]
 })
 export class ResidentsModule { }

@@ -1,0 +1,59 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Atualizar Morador</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+
+
+  <form #residentForm="ngForm" (ngSubmit)="editResident()">
+
+    <!-----------------Retorno ao usuário---------------------->
+    <div class="alert alert-danger" *ngFor="let error of errors">
+      <strong>Campo:</strong> {{error.fieldName}} <br>
+      <strong>Erro:</strong> {{error.message}}
+    </div>
+
+    <div class="alert alert-success" *ngIf="success == true">
+      Morador atualizado com sucesso!
+    </div>
+    <!---------------------------------------------------------->
+
+    <div class="form-row">
+      <div class="form-group col-md-6"> <!--classe sistema de grid-->
+        <label class="form-label">Nome:</label>
+        <input class="form-control" type="text" [(ngModel)]="updatedResident.name" name="name">
+      </div>
+
+      <div class="form-group col-md-6"> <!--classe sistema de grid-->
+        <label class="form-label">CPF:</label>
+        <input class="form-control" type="text"  [(ngModel)]="updatedResident.cpf" name="cpf">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-12"> <!--classe sistema de grid-->
+        <label class="form-label">Email:</label>
+        <input class="form-control" type="text" [(ngModel)]="updatedResident.email" name="email">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4"> <!--classe sistema de grid-->
+        <label class="form-label">Apartment:</label>
+        <input class="form-control" type="text" [(ngModel)]="updatedResident.apartment" name="apartment">
+      </div>
+      <div class="form-group col-md-4"> <!--classe sistema de grid-->
+        <label class="form-label">Block:</label>
+        <input class="form-control" type="text" [(ngModel)]="updatedResident.block" name="block">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Cancelar</button>
+      <button type="submit" class="btn btn-primary">Atualizar</button>
+    </div>
+
+  </form>
+
+</div>
+

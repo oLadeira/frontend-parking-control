@@ -1,9 +1,12 @@
+import { ResidentEditModalComponent } from './../resident-edit-modal/resident-edit-modal.component';
 import { FieldError } from '../../fieldError';
 import { PageResident } from './../pageResident';
 import { ResidentService } from './../../services/resident.service';
 import { Component, OnInit } from '@angular/core';
 import { Resident } from '../resident';
 import { ThisReceiver } from '@angular/compiler';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-residents-table',
@@ -17,7 +20,9 @@ export class ResidentsTableComponent implements OnInit {
   errors!:FieldError[];
   success!:string;
 
-  constructor(private residentService: ResidentService ) {
+  id!:string;
+
+  constructor(private residentService: ResidentService, private activatedRoute: ActivatedRoute, private modalService: NgbModal ) {
     this.resident = new Resident();
    }
 
@@ -29,7 +34,11 @@ export class ResidentsTableComponent implements OnInit {
     });
   }
 
-  saveResident(){
+  getByIdResident(id:string){
+    console.log(this.residentService.getByIdResident(id));
+  }
+
+  saveResident(): void{
     this.residentService.saveResident(this.resident)
     .subscribe(response => {
       this.ngOnInit();
@@ -39,6 +48,11 @@ export class ResidentsTableComponent implements OnInit {
       this.errors = errorResponse.error.errors
       this.success = '';
     });
+  }
+
+  callEditModal(resident:Resident){
+    const ref = this.modalService.open(ResidentEditModalComponent)
+    ref.componentInstance.updatedResident = resident;
   }
 
 }

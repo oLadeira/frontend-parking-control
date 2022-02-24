@@ -18,8 +18,15 @@ export class ResidentService {
     return this.http.get<PageResident>(`${this.baseUrl}/api/resident/`)
   }
 
+  getByIdResident(id:string): Observable<Resident>{
+    return this.http.get<Resident>(`${this.baseUrl}/api/resident/${id}`)
+  }
+
   saveResident(resident: Resident): Observable<Resident>{
     return this.http.post<Resident>(`${this.baseUrl}/api/resident`, resident)
   }
 
+  updateResident(resident:Resident): Observable<Resident>{
+    return this.http.put<Resident>(`${this.baseUrl}/api/resident/${resident.id}`, resident)
+  }
 }

@@ -27,6 +27,8 @@
                         <th>Apartment</th>
                         <th>Block</th>
                         <th>Data de Registro</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +39,8 @@
                         <td>{{resident.apartment}}</td>
                         <td>{{resident.block}}</td>
                         <td>{{resident.registrationDate}}</td>
+                        <td> <button class="btn btn-primary" (click)="callEditModal(resident)"><i class="fas fa-edit"></i></button> </td>
+                        <td> <button class="btn btn-danger"><i class="fas fa-trash"></i></button>  </td>
                     </tr>
                 </tbody>
             </table>
@@ -46,7 +50,6 @@
 
 
 <!--Modal cadastro de Moradores-->
-<!---->
 <div class="modal fade bd-example-modal-xl" id="saveResidentModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
@@ -113,3 +116,4 @@
     </div>
   </div>
 </div>
+

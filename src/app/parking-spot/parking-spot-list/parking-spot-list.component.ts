@@ -30,6 +30,11 @@ export class ParkingSpotListComponent implements OnInit {
     })
   }
 
+  getByIdParkingSpot(){
+    this.parkingSpotService.getByIdParkingSpot(this.parkingSpot.id);
+    console.log(this.parkingSpot);
+  }
+
   saveParkingSpot(){
     this.parkingSpotService.saveParkingSpot(this.parkingSpot)
     .subscribe(response => {
@@ -43,7 +48,7 @@ export class ParkingSpotListComponent implements OnInit {
   }
 
   backParkingSpotList(){
-    this.router.navigate(["/dashboard"])
+    this.router.navigate(["/dashboard/"])
   }
 
 }
