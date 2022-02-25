@@ -3,7 +3,7 @@ import { PageParkingSpot } from './../parking-spot/pageParkingSpot';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ import { Injectable } from '@angular/core';
 export class ParkingSpotService {
 
   baseUrl:string =  environment.baseUrl;
+
+  successSaveMessage = new EventEmitter<boolean>();
 
   constructor(private http:HttpClient ) { }
 

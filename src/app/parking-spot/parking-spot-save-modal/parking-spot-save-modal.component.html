@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Cadastrar Vaga</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+
+  <div class="alert alert-danger" *ngFor="let error of errors">
+    <strong>Campo:</strong> {{error.fieldName}} <br>
+    <strong>Erro:</strong> {{error.message}}
+  </div>
+
+  <form #residentForm="ngForm" (ngSubmit)="saveParkingSpot()">
+
+    <div class="form-row">
+      <div class="form-group col-md-6"> <!--classe sistema de grid-->
+        <label class="form-label">Número da Vaga:</label>
+        <input class="form-control" type="text" [(ngModel)]="parkingSpot.parkingSpotNumber" name="parkingSpotNumber">
+      </div>
+
+      <div class="form-group col-md-6"> <!--classe sistema de grid-->
+        <label class="form-label">Bloco:</label>
+        <input class="form-control" type="text" [(ngModel)]="parkingSpot.block" name="block">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Cancelar</button>
+      <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+
+  </form>
+
+</div>
+
+

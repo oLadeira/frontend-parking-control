@@ -95,4 +95,8 @@ export class ResidentsTableComponent implements OnInit {
     ref.componentInstance.resident = resident;
   }
 
+  refresh(){
+    window.location.reload();
+  }
+
 }

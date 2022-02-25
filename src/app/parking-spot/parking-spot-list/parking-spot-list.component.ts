@@ -1,8 +1,10 @@
+import { ParkingSpotSaveModalComponent } from './../parking-spot-save-modal/parking-spot-save-modal.component';
 import { FieldError } from './../../fieldError';
 import { ParkingSpot } from './../parkingSpot';
 import { ParkingSpotService } from './../../services/parking-spot.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-parking-spot-list',
@@ -14,13 +16,29 @@ export class ParkingSpotListComponent implements OnInit {
   parkingSpots!: ParkingSpot[];
   parkingSpot!:ParkingSpot;
   errors!: FieldError[];
-  success!: boolean;
+  successSaveMessage!:boolean;
 
-  constructor(private parkingSpotService: ParkingSpotService, private router:Router) {
+  constructor(private parkingSpotService: ParkingSpotService, private router:Router, private modalService: NgbModal) {
     this.parkingSpot = new ParkingSpot();
    }
 
   ngOnInit(): void {
+
+    this.parkingSpotService.successSaveMessage
+    .subscribe(valueSave => {
+      this.successSaveMessage = true
+
+      if (valueSave == true){
+        this.getAllParkingSpots();
+      }
+    })
+
+
+
+   this.getAllParkingSpots();
+  }
+
+  getAllParkingSpots(){
     this.parkingSpotService.getAllParkingSpots()
     .subscribe(response => {
       this.parkingSpots = response.content;
@@ -38,13 +56,15 @@ export class ParkingSpotListComponent implements OnInit {
   saveParkingSpot(){
     this.parkingSpotService.saveParkingSpot(this.parkingSpot)
     .subscribe(response => {
-      this.success = true;
     }, errorResponse => {
       console.log(errorResponse);
       this.errors = errorResponse.error.errors;
       console.log(this.errors)
-      this.success = false;
     });
+  }
+
+  callSaveParkingSpot(){
+    this.modalService.open(ParkingSpotSaveModalComponent, { size: 'xl' })
   }
 
   backParkingSpotList(){

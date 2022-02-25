@@ -2,15 +2,15 @@
 <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem ab, veniam ut dolores consectetur
   autem inventore necessitatibus provident eaque molestias aperiam !</p>
 
-  <a href="#" data-toggle="modal" data-target="#saveParkingSpotModal" class="btn btn-success btn-icon-split mb-4">
+  <button class="btn btn-success btn-icon-split mb-4" (click)="callSaveParkingSpot()">
     <span class="icon text-white-50">
       <i class="fas fa-plus"></i>
     </span>
     <span class="text">Cadastrar Vaga</span>
-  </a>
+  </button>
 
   <div class="row">
-    <div class="alert alert-success col-md-3" *ngIf="success == true">
+    <div class="alert alert-success col-md-3" *ngIf="successSaveMessage == true">
       Vaga cadastrada com sucesso!
     </div>
   </div>
@@ -63,53 +63,6 @@
   </div>
   <!------------------------------------------------------------------->
 
-  <!------------------------------Modal cadastrar Vaga----------------->
-  <div class="modal fade bd-example-modal-lg" id="saveParkingSpotModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cadastro de Vaga</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <form #parkingSpotForm="ngForm" (ngSubmit)="saveParkingSpot()">
-
-            <!-----------------Retorno ao usuário---------------------->
-            <div class="alert alert-danger" *ngFor="let error of errors">
-              <strong>Campo: </strong> {{error.fieldName}} <br>
-              <strong>Erro: </strong> {{error.message}}
-            </div>
-
-            <div class="alert alert-success" *ngFor="success == true">
-              Vaga cadastrada com sucesso!
-            </div>
-            <!---------------------------------------------------------->
-
-            <div class="form-row">
-              <div class="form-group col-md-6"> <!--classe sistema de grid-->
-                <label class="form-label">Número da Vaga:</label>
-                <input class="form-control" type="text" [(ngModel)]="parkingSpot.parkingSpotNumber" name="name">
-              </div>
-
-              <div class="form-group col-md-6"> <!--classe sistema de grid-->
-                <label class="form-label">Bloco:</label>
-                <input class="form-control" type="text" [(ngModel)]="parkingSpot.block" name="cpf">
-              </div>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Salvar</button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
   <!--------------------------Modal add veiculo na vaga------------------------------------>
   <div class="modal fade bd-example-modal-lg" id="addResidentCarToParkingSpot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
