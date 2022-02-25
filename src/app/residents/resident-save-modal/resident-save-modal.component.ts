@@ -24,15 +24,11 @@ export class ResidentSaveModalComponent implements OnInit {
   saveResident(){
     this.residentService.saveResident(this.residentSave)
     .subscribe(response => {
-
+      this.residentService.successMessageEmitter.emit(true);
+      this.modal.close();
     }, errorResponse => {
       this.errors = errorResponse.error.errors
-      if (!this.errors){
-        this.residentService.successMessageEmitter.emit(true);
-        this.modal.close();
-      }
     })
   }
-
 
 }

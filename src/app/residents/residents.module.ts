@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ResidentEditModalComponent } from './resident-edit-modal/resident-edit-modal.component';
 import { RouterModule } from '@angular/router';
 import { ResidentSaveModalComponent } from './resident-save-modal/resident-save-modal.component';
+import { ResidentDeleteModalComponent } from './resident-delete-modal/resident-delete-modal.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ResidentSaveModalComponent } from './resident-save-modal/resident-save-
     ResidentsTableComponent,
     ResidentEditModalComponent,
     ResidentSaveModalComponent,
+    ResidentDeleteModalComponent,
   ],
   imports: [
     CommonModule,

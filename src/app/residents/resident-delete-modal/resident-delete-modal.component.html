@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Deletar Morador</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+  Erro ao deletar morador: {{error.message}}
+</div>
+
+<div class="modal-body">
+  <p>Tem certeza que deseja deletar o morador: {{resident.name}} ?</p>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+  <button type="submit" (click)="deleteResident()" class="btn btn-danger">Deletar</button>
+</div>

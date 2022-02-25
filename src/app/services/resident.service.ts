@@ -13,6 +13,7 @@ export class ResidentService {
   baseUrl: string = environment.baseUrl;
 
   successMessageEmitter = new EventEmitter<boolean>();
+  successDeleteMessageEmitter = new EventEmitter<boolean>();
 
   constructor( private http: HttpClient) {
     console.log('CursoService instancia')
@@ -33,5 +34,9 @@ export class ResidentService {
 
   updateResident(resident:Resident): Observable<Resident>{
     return this.http.put<Resident>(`${this.baseUrl}/api/resident/${resident.id}`, resident)
+  }
+
+  deleteResident(id:string){
+    return this.http.delete(`${this.baseUrl}/api/resident/${id}`)
   }
 }

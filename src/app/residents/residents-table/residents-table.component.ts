@@ -1,3 +1,4 @@
+import { ResidentDeleteModalComponent } from './../resident-delete-modal/resident-delete-modal.component';
 import { ResidentSaveModalComponent } from './../resident-save-modal/resident-save-modal.component';
 import { ResidentEditModalComponent } from './../resident-edit-modal/resident-edit-modal.component';
 import { FieldError } from '../../fieldError';
@@ -21,6 +22,7 @@ export class ResidentsTableComponent implements OnInit {
   errors!:FieldError[];
   success!:string;
   successBool!:boolean
+  successDeleteMessage!:boolean;
 
   id!:string;
 
@@ -36,13 +38,14 @@ export class ResidentsTableComponent implements OnInit {
       }
     })
 
-    this.getAllResidents();
+    this.residentService.successDeleteMessageEmitter.subscribe(valueDelete => {
+      this.successDeleteMessage = valueDelete;
+      if (valueDelete == true){
+        this.getAllResidents();
+      }
+    })
 
-    /* this.residentService.getAllResidents()
-    .subscribe(response => {
-      this.residents = response.content;
-      console.log(response);
-    }); */
+    this.getAllResidents();
 
   }
 
@@ -77,6 +80,11 @@ export class ResidentsTableComponent implements OnInit {
 
   callSaveModal(){
     const ref = this.modalService.open(ResidentSaveModalComponent, { size: 'xl' })
+  }
+
+  callDeleteModal(resident:Resident){
+    const ref = this.modalService.open(ResidentDeleteModalComponent)
+    ref.componentInstance.resident = resident;
   }
 
 }
