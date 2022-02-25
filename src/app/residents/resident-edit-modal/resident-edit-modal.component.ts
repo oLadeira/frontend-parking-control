@@ -21,13 +21,10 @@ export class ResidentEditModalComponent implements OnInit {
   editResident(){
     this.residentService.updateResident(this.updatedResident)
     .subscribe(response=> {
+      this.residentService.successUpdateMessageEmitter.emit(true);
+      this.modal.close();
     }, errorResponse => {
       this.errors = errorResponse.error.errors
-      this.success = false;
-      if (!this.errors){
-        this.success = true;
-        this.modal.close();
-      }
     });
 
   }

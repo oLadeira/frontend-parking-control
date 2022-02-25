@@ -25,7 +25,11 @@
 
 
       <div class="alert alert-success" *ngIf="successBool == true">
-        Morador atualizado/cadastrado com sucesso!
+        Morador cadastrado com sucesso!
+      </div>
+
+      <div class="alert alert-primary" *ngIf="successUpdateMessage == true">
+        Morador atualizado com sucesso!
       </div>
 
       <div class="alert alert-danger" *ngIf="successDeleteMessage == true">
@@ -43,8 +47,7 @@
                         <th>Apartment</th>
                         <th>Block</th>
                         <th>Data de Registro</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +58,9 @@
                         <td>{{resident.apartment}}</td>
                         <td>{{resident.block}}</td>
                         <td>{{resident.registrationDate}}</td>
-                        <td> <button class="btn btn-primary" (click)="callEditModal(resident)"><i class="fas fa-edit"></i></button> </td>
-                        <td> <button class="btn btn-danger" (click)="callDeleteModal(resident)"><i class="fas fa-trash"></i></button>  </td>
+                        <td> <button class="btn btn-primary mr-4" (click)="callEditModal(resident)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger" (click)="callDeleteModal(resident)"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

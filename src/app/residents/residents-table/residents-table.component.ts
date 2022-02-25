@@ -23,6 +23,7 @@ export class ResidentsTableComponent implements OnInit {
   success!:string;
   successBool!:boolean
   successDeleteMessage!:boolean;
+  successUpdateMessage!:boolean;
 
   id!:string;
 
@@ -41,6 +42,13 @@ export class ResidentsTableComponent implements OnInit {
     this.residentService.successDeleteMessageEmitter.subscribe(valueDelete => {
       this.successDeleteMessage = valueDelete;
       if (valueDelete == true){
+        this.getAllResidents();
+      }
+    })
+
+    this.residentService.successUpdateMessageEmitter.subscribe(valueUpdate => {
+      this.successUpdateMessage = valueUpdate;
+      if (valueUpdate == true){
         this.getAllResidents();
       }
     })

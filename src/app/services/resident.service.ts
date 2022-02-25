@@ -14,6 +14,7 @@ export class ResidentService {
 
   successMessageEmitter = new EventEmitter<boolean>();
   successDeleteMessageEmitter = new EventEmitter<boolean>();
+  successUpdateMessageEmitter = new EventEmitter<boolean>();
 
   constructor( private http: HttpClient) {
     console.log('CursoService instancia')
