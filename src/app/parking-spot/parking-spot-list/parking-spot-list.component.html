@@ -16,52 +16,73 @@
   </div>
 
 
-<div class="row">
 
-  <!----------------------Card Vaga------------------------------------>
-  <div class="card ml-3 mr-3 mb-4" *ngFor="let parkingSpot of parkingSpots">
 
-    <div class="card-image" *ngIf="parkingSpot.residentCar != null">
-      <a href="" class="">
-        <i class="fas fa-fw fa-car fa-10x fa-color-red"></i>
-      </a>
-    </div>
+  <div class="row">
 
-    <div class="card-image" *ngIf="parkingSpot.residentCar == null">
-      <a href="" class="">
-        <i class="fas fa-fw fa-car fa-10x fa-color-green"></i>
-      </a>
-    </div>
+    <div class="card ml-4 mr-3 mb-4" *ngFor="let parkingSpot of parkingSpots">
 
-    <div class="card-header">
-      <h5 class="card-title">Vaga {{ parkingSpot.parkingSpotNumber }}</h5>
-    </div>
+      <!------------------------CARD VAGA LIVRE--------------------->
+      <div class="spot-empty" *ngIf="parkingSpot.residentCar==null">
 
-    <div class="card-body">
-      <p *ngIf="parkingSpot.residentCar != null"><strong>Ocupado por:</strong> {{ parkingSpot.residentCar.responsibleName }}<br>
-      <strong>Placa:</strong> {{parkingSpot.residentCar.licensePlateCar}}</p>
-      <p *ngIf="parkingSpot.residentCar == null"><strong>Disponível</strong></p>
+          <div class="card-image">
+            <a href="" class="">
+              <i class="fas fa-fw fa-car fa-10x fa-color-green"></i>
+            </a>
+          </div>
 
-    </div>
+          <div class="card-header">
+            <h5 class="card-title">Vaga {{ parkingSpot.parkingSpotNumber }}</h5>
+          </div>
 
-    <div class="card-footer">
+          <div class="card-body">
+            <p><strong>Disponível</strong></p>
+          </div>
 
-      <a href="" class="btn btn-success" (onClick)="getByIdParkingSpot()" *ngIf="parkingSpot.residentCar == null" data-toggle="modal" data-target="#addResidentCarToParkingSpot">
-        <span class="icon text-white-50">
-          <i class="fas fa-plus"></i>
-        </span>
-      </a>
+          <div class="card-footer">
+            <a href="" class="btn btn-success" (onClick)="getByIdParkingSpot()" data-toggle="modal" data-target="#addResidentCarToParkingSpot">
+              <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+              </span>
+            </a>
+          </div>
 
-      <a href="" class="btn btn-danger" *ngIf="parkingSpot.residentCar != null">
-        <span class="icon text-white-50">
-          <i class="fas fa-minus"></i>
-        </span>
-      </a>
+      </div>
+      <!-------------------------------------------------------------->
 
-    </div>
 
-  </div>
-  <!------------------------------------------------------------------->
+      <!------------------------CARD VAGA OCUPADA--------------------->
+      <div class="spot-occupied" *ngIf="parkingSpot.residentCar!=null">
+
+        <div class="card-image">
+          <a href="" class="">
+            <i class="fas fa-fw fa-car fa-10x fa-color-red"></i>
+          </a>
+        </div>
+
+        <div class="card-header">
+          <h5 class="card-title">Vaga {{ parkingSpot.parkingSpotNumber }}</h5>
+        </div>
+
+        <div class="card-body">
+          <p><strong>Ocupado por:</strong> {{ parkingSpot.residentCar.responsibleName }}<br>
+          <strong>Placa:</strong> {{parkingSpot.residentCar.licensePlateCar}}</p>
+        </div>
+
+        <div class="card-footer">
+          <a href="" class="btn btn-danger">
+            <span class="icon text-white-50">
+              <i class="fas fa-minus"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <!------------------------------------------------------------>
+
+    </div><!--fim div card-->
+
+  </div><!-- fim div row-->
+
 
 
   <!--------------------------Modal add veiculo na vaga------------------------------------>
@@ -112,5 +133,4 @@
     </div>
   </div>
 
-</div>
 
