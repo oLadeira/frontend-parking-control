@@ -1,7 +1,7 @@
 import { PageResident } from './../residents/pageResident';
 import { environment } from './../../environments/environment';
 import { Resident } from './../residents/resident';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
@@ -12,10 +12,14 @@ export class ResidentService {
 
   baseUrl: string = environment.baseUrl;
 
-  constructor( private http: HttpClient) { }
+  successMessageEmitter = new EventEmitter<boolean>();
+
+  constructor( private http: HttpClient) {
+    console.log('CursoService instancia')
+  }
 
   getAllResidents(): Observable<PageResident>{
-    return this.http.get<PageResident>(`${this.baseUrl}/api/resident/`)
+    return this.http.get<PageResident>(`${this.baseUrl}/api/resident/?page=0&size=20&direction=ASC&sort=registrationDate,DESC`)
   }
 
   getByIdResident(id:string): Observable<Resident>{
@@ -23,6 +27,7 @@ export class ResidentService {
   }
 
   saveResident(resident: Resident): Observable<Resident>{
+    //this.successMessageEmitter.emit(true);
     return this.http.post<Resident>(`${this.baseUrl}/api/resident`, resident)
   }
 

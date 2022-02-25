@@ -26,6 +26,7 @@ export class ResidentEditModalComponent implements OnInit {
       this.success = false;
       if (!this.errors){
         this.success = true;
+        this.modal.close();
       }
     });
 

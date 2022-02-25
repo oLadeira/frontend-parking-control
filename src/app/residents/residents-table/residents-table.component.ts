@@ -1,3 +1,4 @@
+import { ResidentSaveModalComponent } from './../resident-save-modal/resident-save-modal.component';
 import { ResidentEditModalComponent } from './../resident-edit-modal/resident-edit-modal.component';
 import { FieldError } from '../../fieldError';
 import { PageResident } from './../pageResident';
@@ -19,6 +20,7 @@ export class ResidentsTableComponent implements OnInit {
   resident!:Resident;
   errors!:FieldError[];
   success!:string;
+  successBool!:boolean
 
   id!:string;
 
@@ -27,11 +29,29 @@ export class ResidentsTableComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.residentService.getAllResidents()
+    this.residentService.successMessageEmitter.subscribe(value => {
+      this.successBool = value;
+      if (value == true){
+        this.getAllResidents();
+      }
+    })
+
+    this.getAllResidents();
+
+    /* this.residentService.getAllResidents()
     .subscribe(response => {
       this.residents = response.content;
       console.log(response);
-    });
+    }); */
+
+  }
+
+  getAllResidents(){
+    this.residentService.getAllResidents()
+    .subscribe(response => {
+      this.residents = response.content
+      console.log(response);
+    })
   }
 
   getByIdResident(id:string){
@@ -51,8 +71,12 @@ export class ResidentsTableComponent implements OnInit {
   }
 
   callEditModal(resident:Resident){
-    const ref = this.modalService.open(ResidentEditModalComponent)
+    const ref = this.modalService.open(ResidentEditModalComponent, { size: 'xl' })
     ref.componentInstance.updatedResident = resident;
+  }
+
+  callSaveModal(){
+    const ref = this.modalService.open(ResidentSaveModalComponent, { size: 'xl' })
   }
 
 }

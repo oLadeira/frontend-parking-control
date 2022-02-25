@@ -6,12 +6,14 @@ import { ResidentsTableComponent } from './residents-table/residents-table.compo
 import { FormsModule } from '@angular/forms';
 import { ResidentEditModalComponent } from './resident-edit-modal/resident-edit-modal.component';
 import { RouterModule } from '@angular/router';
+import { ResidentSaveModalComponent } from './resident-save-modal/resident-save-modal.component';
 
 
 @NgModule({
   declarations: [
     ResidentsTableComponent,
     ResidentEditModalComponent,
+    ResidentSaveModalComponent,
   ],
   imports: [
     CommonModule,

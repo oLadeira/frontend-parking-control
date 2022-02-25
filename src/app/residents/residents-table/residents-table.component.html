@@ -6,16 +6,28 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Dados dos Moradores</h6>
     </div>
+
     <div class="card-body">
 
       <div class="my-2"></div>
-      <a href="#" data-toggle="modal" data-target="#saveResidentModal" class="btn btn-success btn-icon-split">
+      <button (click)="callSaveModal()" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
         <span class="text">Cadastrar Morador</span>
-      </a>
+      </button>
+
+      <button (click)="getAllResidents()" class="btn btn-primary ml-4">
+        <i class="fas fa-refresh">refresh icon</i>
+      </button>
+
       <div class="my-4"></div>
+
+
+      <div class="alert alert-success" *ngIf="successBool == true">
+        Morador atualizado/cadastrado com sucesso!
+      </div>
+
 
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
@@ -48,72 +60,4 @@
     </div>
 </div>
 
-
-<!--Modal cadastro de Moradores-->
-<div class="modal fade bd-example-modal-xl" id="saveResidentModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Morador</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <form #residentForm="ngForm" (ngSubmit)="saveResident()">
-
-          <!-----------------Retorno ao usuário---------------------->
-          <div class="alert alert-danger" *ngFor="let error of errors">
-            <strong>Campo:</strong> {{error.fieldName}} <br>
-            <strong>Erro:</strong> {{error.message}}
-          </div>
-
-          <div class="alert alert-success" *ngIf="success">
-            Morador cadastrado com sucesso
-          </div>
-          <!---------------------------------------------------------->
-
-          <div class="form-row">
-            <div class="form-group col-md-6"> <!--classe sistema de grid-->
-              <label class="form-label">Nome:</label>
-              <input class="form-control" type="text" [(ngModel)]="resident.name" name="name">
-            </div>
-
-            <div class="form-group col-md-6"> <!--classe sistema de grid-->
-              <label class="form-label">CPF:</label>
-              <input class="form-control" type="text" [(ngModel)]="resident.cpf" name="cpf">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-12"> <!--classe sistema de grid-->
-              <label class="form-label">Email:</label>
-              <input class="form-control" type="text" [(ngModel)]="resident.email" name="email">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-4"> <!--classe sistema de grid-->
-              <label class="form-label">Apartment:</label>
-              <input class="form-control" type="text" [(ngModel)]="resident.apartment" name="apartment">
-            </div>
-            <div class="form-group col-md-4"> <!--classe sistema de grid-->
-              <label class="form-label">Block:</label>
-              <input class="form-control" type="text" [(ngModel)]="resident.block" name="block">
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-success">Salvar</button>
-          </div>
-
-        </form>
-
-      </div>
-
-    </div>
-  </div>
-</div>
 
