@@ -1,3 +1,4 @@
+import { ParkingSpotInsertCarComponent } from './../parking-spot-insert-car/parking-spot-insert-car.component';
 import { ParkingSpotSaveModalComponent } from './../parking-spot-save-modal/parking-spot-save-modal.component';
 import { FieldError } from './../../fieldError';
 import { ParkingSpot } from './../parkingSpot';
@@ -65,6 +66,10 @@ export class ParkingSpotListComponent implements OnInit {
 
   callSaveParkingSpot(){
     this.modalService.open(ParkingSpotSaveModalComponent, { size: 'xl' })
+  }
+
+  callInsertCar(){
+    this.modalService.open(ParkingSpotInsertCarComponent, { size: 'xl' })
   }
 
   backParkingSpotList(){

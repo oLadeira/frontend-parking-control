@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { ResidentToParkingSpot } from '../parking-spot/residentToParkingSpot';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class ParkingSpotService {
 
   saveParkingSpot(parkingSpot:ParkingSpot): Observable<ParkingSpot>{
     return this.http.post<ParkingSpot>(`${this.baseUrl}/api/parking-spot`, parkingSpot);
+  }
+
+  insertCarParkingSpot(residentToParkingSpot:ResidentToParkingSpot): Observable<ResidentToParkingSpot>{
+    return this.http.post<ResidentToParkingSpot>(`${this.baseUrl}/api/parking-spot/add-resident-car`, residentToParkingSpot)
   }
 
 }

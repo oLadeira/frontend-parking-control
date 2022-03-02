@@ -9,6 +9,10 @@
     <strong>Erro:</strong> {{error.message}}
   </div>
 
+  <div class="alert alert-danger" *ngIf="error">
+    <strong>Erro:</strong> {{error}} <br>
+  </div>
+
   <form #residentForm="ngForm" (ngSubmit)="saveParkingSpot()">
 
     <div class="form-row">

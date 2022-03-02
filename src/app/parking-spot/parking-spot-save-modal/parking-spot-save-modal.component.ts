@@ -12,6 +12,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ParkingSpotSaveModalComponent implements OnInit {
   parkingSpot!:ParkingSpot;
   errors!:FieldError[];
+  error!:string;
 
   constructor(private parkingSpotService: ParkingSpotService ,public modal: NgbActiveModal) {
     this.parkingSpot = new ParkingSpot();
@@ -27,6 +28,8 @@ export class ParkingSpotSaveModalComponent implements OnInit {
       this.parkingSpotService.successSaveMessage.emit(true);
     }, errorResponse => {
       this.errors = errorResponse.error.errors
+      this.error = errorResponse.error.message
+      console.log(errorResponse)
     })
   }
 
