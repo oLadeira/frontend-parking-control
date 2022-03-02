@@ -10,9 +10,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ParkingSpotInsertCarComponent implements OnInit {
   residentToParkingSpot!:ResidentToParkingSpot
+  parkingSpotNumber!:string;
 
   constructor(public modal:NgbActiveModal, private parkingSpotService: ParkingSpotService) {
     this.residentToParkingSpot = new ResidentToParkingSpot();
+    this.residentToParkingSpot.parkingSpotNumber = this.parkingSpotNumber;
+    console.log(this.residentToParkingSpot)
    }
 
   ngOnInit(): void {

@@ -1,0 +1,66 @@
+<h1 class="h3 mb-2 text-gray-800">Veículos de Moradores</h1>
+<p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem ab, veniam ut dolores consectetur
+  autem inventore necessitatibus provident eaque molestias aperiam !</p>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Dados dos Veículos</h6>
+    </div>
+
+    <div class="card-body">
+
+      <div class="my-2"></div>
+      <button  class="btn btn-success btn-icon-split">
+        <span class="icon text-white-50">
+          <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Cadastrar Veículo</span>
+      </button>
+
+      <button  class="btn btn-primary ml-4">
+        <i class="fas fa-refresh">refresh icon</i>
+      </button>
+
+      <div class="my-4"></div>
+
+<!--
+      <div class="alert alert-success" >
+        Morador cadastrado com sucesso!
+      </div>
+
+      <div class="alert alert-primary" >
+        Morador atualizado com sucesso!
+      </div>
+
+      <div class="alert alert-danger" >
+        Morador deletado com sucesso!
+      </div> -->
+
+
+        <div class="table">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Nome do Responsável</th>
+                        <th>Placa</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Cor</th>
+                        <th>Data de Registro</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let residentCar of residentsCars">
+                    <td> {{residentCar.responsibleName}} </td>
+                    <td> {{residentCar.licensePlateCar}} </td>
+                    <td> {{residentCar.brandCar}} </td>
+                    <td> {{residentCar.modelCar}} </td>
+                    <td> {{residentCar.colorCar}} </td>
+                    <td> {{residentCar.registrationTime}} </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

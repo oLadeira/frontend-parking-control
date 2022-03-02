@@ -1,3 +1,4 @@
+import { ResidentCarModule } from './resident-car/resident-car.module';
 import { ParkingSpotModule } from './parking-spot/parking-spot.module';
 import { ResidentsModule } from './residents/residents.module';
 import { TemplateModule } from './template/template.module';
@@ -24,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ParkingSpotModule,
+    ResidentCarModule,
     NgbModule
   ],
   providers: [],

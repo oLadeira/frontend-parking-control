@@ -1,3 +1,4 @@
+import { ResidentToParkingSpot } from './../residentToParkingSpot';
 import { ParkingSpotInsertCarComponent } from './../parking-spot-insert-car/parking-spot-insert-car.component';
 import { ParkingSpotSaveModalComponent } from './../parking-spot-save-modal/parking-spot-save-modal.component';
 import { FieldError } from './../../fieldError';
@@ -16,6 +17,7 @@ export class ParkingSpotListComponent implements OnInit {
 
   parkingSpots!: ParkingSpot[];
   parkingSpot!:ParkingSpot;
+  residentToParkingSpot!:ResidentToParkingSpot
   errors!: FieldError[];
   successSaveMessage!:boolean;
 
@@ -68,8 +70,10 @@ export class ParkingSpotListComponent implements OnInit {
     this.modalService.open(ParkingSpotSaveModalComponent, { size: 'xl' })
   }
 
-  callInsertCar(){
-    this.modalService.open(ParkingSpotInsertCarComponent, { size: 'xl' })
+  callInsertCar(parkingSpotNumber: string){
+    const ref = this.modalService.open(ParkingSpotInsertCarComponent, { size: 'xl' })
+    ref.componentInstance.residentToParkingSpot.parkingSpotNumber = parkingSpotNumber
+    console.log(parkingSpotNumber)
   }
 
   backParkingSpotList(){
