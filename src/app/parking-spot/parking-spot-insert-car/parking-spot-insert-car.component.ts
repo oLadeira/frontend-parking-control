@@ -23,7 +23,7 @@ export class ParkingSpotInsertCarComponent implements OnInit {
     .subscribe(response => {
 
     },errorResponse => {
-
+      console.log(errorResponse)
     })
   }
 
