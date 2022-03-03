@@ -1,3 +1,5 @@
+import { Error } from './../../error';
+import { ResidentCarDeleteModalComponent } from './../resident-car-delete-modal/resident-car-delete-modal.component';
 import { ResidentCarEditModalComponent } from './../resident-car-edit-modal/resident-car-edit-modal.component';
 import { ResidentCarSaveModalComponent } from './../resident-car-save-modal/resident-car-save-modal.component';
 import { ResidentCar } from './../../residents/residentCar';
@@ -16,6 +18,8 @@ export class ResidentCarListComponent implements OnInit {
   residentCar!:ResidentCar;
   successSaveMessage!:boolean;
   successEditMessage!:boolean;
+  successDeleteMessage!:boolean;
+  errorDeleteMessage!:Error;
 
   constructor(private residentCarService: ResidentCarService, private modalService:NgbModal) { }
 
@@ -37,6 +41,21 @@ export class ResidentCarListComponent implements OnInit {
         this.getAllResidentsCars();
       }
     })
+
+    this.residentCarService.successDeleteMessage
+    .subscribe(value=>{
+      this.successDeleteMessage = value
+      if (value == true){
+        this.getAllResidentsCars();
+      }
+    })
+
+    this.residentCarService.errorDeleteMessage
+    .subscribe(value=>{
+      this.errorDeleteMessage = value
+
+    })
+
   }
 
   getAllResidentsCars(){
@@ -58,6 +77,7 @@ export class ResidentCarListComponent implements OnInit {
   }
 
   callResidentCarDeleteModal(residentCar: ResidentCar){
-
+    const ref = this.modalService.open(ResidentCarDeleteModalComponent, {size: 'ml'})
+    ref.componentInstance.residentCarDelete = residentCar
   }
 }
