@@ -28,11 +28,11 @@
         Veículo cadastrado com sucesso!
       </div>
 
-<!--       <div class="alert alert-primary" >
+      <div class="alert alert-primary" *ngIf="successEditMessage == true">
         Veículo atualizado com sucesso!
       </div>
 
-      <div class="alert alert-danger" >
+<!--       <div class="alert alert-danger" >
         Veículo deletado com sucesso!
       </div> -->
 
@@ -58,6 +58,10 @@
                     <td> {{residentCar.modelCar}} </td>
                     <td> {{residentCar.colorCar}} </td>
                     <td> {{residentCar.registrationTime}} </td>
+                    <td>
+                      <button class="btn btn-primary mr-4" (click)="callResidentCarEditModal(residentCar)"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-danger" (click)="callResidentCarDeleteModal(residentCar)"><i class="fas fa-trash"></i></button>
+                    </td>
                   </tr>
                 </tbody>
             </table>

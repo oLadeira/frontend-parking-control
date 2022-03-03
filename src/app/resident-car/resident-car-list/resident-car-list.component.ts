@@ -1,3 +1,4 @@
+import { ResidentCarEditModalComponent } from './../resident-car-edit-modal/resident-car-edit-modal.component';
 import { ResidentCarSaveModalComponent } from './../resident-car-save-modal/resident-car-save-modal.component';
 import { ResidentCar } from './../../residents/residentCar';
 import { ResidentCarService } from './../../services/resident-car.service';
@@ -12,15 +13,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ResidentCarListComponent implements OnInit {
   residentsCars!:ResidentCar[];
+  residentCar!:ResidentCar;
   successSaveMessage!:boolean;
+  successEditMessage!:boolean;
 
   constructor(private residentCarService: ResidentCarService, private modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.getAllResidentsCars();
+
     this.residentCarService.successSaveMessage
     .subscribe(value=>{
       this.successSaveMessage = value
+      if (value == true){
+        this.getAllResidentsCars();
+      }
+    })
+
+    this.residentCarService.successEditMessage
+    .subscribe(value=>{
+      this.successEditMessage = value
       if (value == true){
         this.getAllResidentsCars();
       }
@@ -38,5 +50,14 @@ export class ResidentCarListComponent implements OnInit {
 
   callResidentCarSaveModal(){
     this.modalService.open(ResidentCarSaveModalComponent, {size: 'xl'})
+  }
+
+  callResidentCarEditModal(residentCar: ResidentCar){
+    const ref = this.modalService.open(ResidentCarEditModalComponent, {size: 'xl'})
+    ref.componentInstance.residentCarEdit = residentCar;
+  }
+
+  callResidentCarDeleteModal(residentCar: ResidentCar){
+
   }
 }

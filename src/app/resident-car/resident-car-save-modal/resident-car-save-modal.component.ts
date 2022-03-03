@@ -26,7 +26,7 @@ export class ResidentCarSaveModalComponent implements OnInit {
       this.residentCarService.successSaveMessage.emit(true);
       this.modal.close();
     }, errorResponse => {
-      this.errors = errorResponse.error.errors
+      this.errors = errorResponse.error.errors;
     })
   }
 
