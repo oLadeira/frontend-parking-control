@@ -1,3 +1,4 @@
+import { ParkingSpotRemoveCarComponent } from './../parking-spot-remove-car/parking-spot-remove-car.component';
 import { ResidentToParkingSpot } from './../residentToParkingSpot';
 import { ParkingSpotInsertCarComponent } from './../parking-spot-insert-car/parking-spot-insert-car.component';
 import { ParkingSpotSaveModalComponent } from './../parking-spot-save-modal/parking-spot-save-modal.component';
@@ -74,6 +75,11 @@ export class ParkingSpotListComponent implements OnInit {
     const ref = this.modalService.open(ParkingSpotInsertCarComponent, { size: 'xl' })
     ref.componentInstance.residentToParkingSpot.parkingSpotNumber = parkingSpotNumber
     console.log(parkingSpotNumber)
+  }
+
+  callRemoveCarModal(parkingSpot: ParkingSpot){
+    const ref = this.modalService.open(ParkingSpotRemoveCarComponent, {size: 'ml'})
+    ref.componentInstance.parkingSpotRemove = parkingSpot;
   }
 
   backParkingSpotList(){

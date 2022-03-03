@@ -1,6 +1,6 @@
 import { ParkingSpot } from './../parking-spot/parkingSpot';
 import { PageParkingSpot } from './../parking-spot/pageParkingSpot';
-import { Observable } from 'rxjs';
+import { Observable, ObservableLike } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
@@ -31,6 +31,10 @@ export class ParkingSpotService {
 
   insertCarParkingSpot(residentToParkingSpot:ResidentToParkingSpot): Observable<ResidentToParkingSpot>{
     return this.http.post<ResidentToParkingSpot>(`${this.baseUrl}/api/parking-spot/add-resident-car`, residentToParkingSpot)
+  }
+
+  removeResidentCarParkingSpot(residentToParkingSpot: ResidentToParkingSpot): Observable<ResidentToParkingSpot>{
+    return this.http.post<ResidentToParkingSpot>(`${this.baseUrl}/api/parking-spot/remove-resident-car`, residentToParkingSpot)
   }
 
 }

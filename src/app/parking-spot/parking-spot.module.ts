@@ -6,6 +6,7 @@ import { ParkingSpotListComponent } from './parking-spot-list/parking-spot-list.
 import { FormsModule } from '@angular/forms';
 import { ParkingSpotSaveModalComponent } from './parking-spot-save-modal/parking-spot-save-modal.component';
 import { ParkingSpotInsertCarComponent } from './parking-spot-insert-car/parking-spot-insert-car.component';
+import { ParkingSpotRemoveCarComponent } from './parking-spot-remove-car/parking-spot-remove-car.component';
 
 
 
@@ -13,7 +14,8 @@ import { ParkingSpotInsertCarComponent } from './parking-spot-insert-car/parking
   declarations: [
     ParkingSpotListComponent,
     ParkingSpotSaveModalComponent,
-    ParkingSpotInsertCarComponent
+    ParkingSpotInsertCarComponent,
+    ParkingSpotRemoveCarComponent
   ],
   imports: [
     CommonModule,

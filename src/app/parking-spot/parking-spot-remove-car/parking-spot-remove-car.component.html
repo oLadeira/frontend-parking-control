@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Inserir Veículo a Vaga</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+
+  <!-- <div class="alert alert-danger" >
+    <strong>Campo:</strong>  <br>
+    <strong>Erro:</strong>
+  </div>
+
+  <div class="alert alert-danger" >
+    <strong>Erro:</strong>  <br>
+  </div> -->
+
+  <p>
+    <strong> Tem certeza que deseja remover o veículo de placa <span class="text-primary">"{{parkingSpotRemove.residentCar.licensePlateCar}}"</span> da vaga <span class="text-primary">"{{parkingSpotRemove.parkingSpotNumber}}"</span> ?</strong>
+  </p>
+
+
+
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+  <button type="submit" class="btn btn-danger" (click)="removeResidentToParkingSpot()">Remover</button>
+</div>
+
+
