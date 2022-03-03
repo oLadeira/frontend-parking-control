@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Cadastrar Veículo de Morador</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+
+
+  <form #residentForm="ngForm" (ngSubmit)="saveResidentCar()">
+
+    <!-----------------Retorno ao usuário---------------------->
+    <div class="alert alert-danger" *ngFor="let error of errors">
+      <strong>Campo:</strong> {{error.fieldName}} <br>
+      <strong>Erro:</strong> {{error.message}}
+    </div>
+    <!---------------------------------------------------------->
+
+    <div class="form-row">
+      <div class="form-group col-md-12"> <!--classe sistema de grid-->
+        <label class="form-label">CPF do Responsável:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.residentCPF" name="residentCPF">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-10"> <!--classe sistema de grid-->
+        <label class="form-label">Nome do Responsável:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.responsibleName" name="responsibleName">
+      </div>
+
+      <div class="form-group col-md-2"> <!--classe sistema de grid-->
+        <label class="form-label">Placa:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.licensePlateCar"  name="licensePlateCar">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4"> <!--classe sistema de grid-->
+        <label class="form-label">Marca:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.brandCar" name="brandCar">
+      </div>
+      <div class="form-group col-md-8"> <!--classe sistema de grid-->
+        <label class="form-label">Modelo:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.modelCar" name="modelCar">
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-4"> <!--classe sistema de grid-->
+        <label class="form-label">Cor:</label>
+        <input class="form-control" type="text" [(ngModel)]="residentCar.colorCar" name="colorCar">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Cancelar</button>
+      <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+
+  </form>
+
+</div>
+
+
