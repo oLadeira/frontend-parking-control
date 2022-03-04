@@ -28,6 +28,8 @@ export class ParkingSpotRemoveCarComponent implements OnInit {
     this.parkingSpotService.removeResidentCarParkingSpot(this.parkingSpot)
     .subscribe(response => {
       console.log(response)
+      this.parkingSpotService.successRemoveCarMessage.emit(true)
+      this.modal.close();
     }, errorResponse => {
       console.log(errorResponse)
     })

@@ -14,6 +14,7 @@ export class ParkingSpotService {
   baseUrl:string =  environment.baseUrl;
 
   successSaveMessage = new EventEmitter<boolean>();
+  successRemoveCarMessage = new EventEmitter<boolean>();
 
   constructor(private http:HttpClient ) { }
 
