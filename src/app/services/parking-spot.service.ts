@@ -1,7 +1,7 @@
 import { ParkingSpot } from './../parking-spot/parkingSpot';
 import { PageParkingSpot } from './../parking-spot/pageParkingSpot';
 import { Observable, ObservableLike } from 'rxjs';
-import { environment } from './../../environments/environment';
+import { environment } from './../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { ResidentToParkingSpot } from '../parking-spot/residentToParkingSpot';

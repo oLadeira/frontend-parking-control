@@ -1,7 +1,7 @@
 import { SaveResidentCar } from './../resident-car/saveResidentCar';
 import { PageResidentCar } from './../resident-car/pageResidentCar';
 import { ResidentCar } from './../residents/residentCar';
-import { environment } from './../../environments/environment';
+import { environment } from './../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, APP_ID } from '@angular/core';
 import { Observable } from 'rxjs';

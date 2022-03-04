@@ -1,5 +1,5 @@
 import { PageResident } from './../residents/pageResident';
-import { environment } from './../../environments/environment';
+import { environment } from './../../environments/environment.prod';
 import { Resident } from './../residents/resident';
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
