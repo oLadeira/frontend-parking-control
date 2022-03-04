@@ -1,27 +1,32 @@
-# ParkingControl
+# Sistema de Controle de Moradores e Vagas de Estacionamento para condomínios.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+Projeto usado para fixar meus conhecimentos em desenvolvimento de API's utilizando o ecossistema Spring para o back-end, e Angular para o front-end.
 
-## Development server
+## Aplicação Completa em Funcionamento 🧑🏼‍💻
+* Deploy da aplicação Front-end foi feita na plataforma Netlify, e pode ser acessada [AQUI](https://parking-control-angular.netlify.app/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Tecnologias e Bibliotecas Utilizadas (Front-end)👨‍💻
+* Angular
+* Bootstrap
+* NgBootstrap
+* Popper
+* Angular Material
+* Template [SB Admin 2](https://startbootstrap.com/theme/sb-admin-2)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Demonstração 📷
+![image](https://user-images.githubusercontent.com/78936074/156842119-fd017707-6c0e-459a-ada4-cab66f9d6f95.png)
 
-## Build
+![image](https://user-images.githubusercontent.com/78936074/156842168-0f4c7086-59b8-44ed-abb1-2858b6345fe5.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://user-images.githubusercontent.com/78936074/156842356-83b855ec-364c-4bb0-9c62-f79b5408b9ae.png)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Back-End ⚙️
+* O código fonte da aplicação back-end pode ser encontrada [AQUI](https://github.com/oLadeira/api-parking-control)!.
 
-## Running end-to-end tests
+## Em desenvolvimento
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🚧
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Desenvolvido com ❤️ por <b>Lucas Ladeira.</b>
