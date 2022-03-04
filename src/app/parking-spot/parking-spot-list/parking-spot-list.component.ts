@@ -21,6 +21,7 @@ export class ParkingSpotListComponent implements OnInit {
   residentToParkingSpot!:ResidentToParkingSpot
   errors!: FieldError[];
   successSaveMessage!:boolean;
+  successInsertCarMessage!:boolean;
   successRemoveCarMessage!:boolean;
 
   constructor(private parkingSpotService: ParkingSpotService, private router:Router, private modalService: NgbModal) {
@@ -43,6 +44,15 @@ export class ParkingSpotListComponent implements OnInit {
       this.successRemoveCarMessage = value
 
       if (value == true){
+        this.getAllParkingSpots();
+      }
+    })
+
+    this.parkingSpotService.successInsertCarMessage
+    .subscribe(value => {
+      this.successInsertCarMessage = value;
+
+      if (value = true){
         this.getAllParkingSpots();
       }
     })

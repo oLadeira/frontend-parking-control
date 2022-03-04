@@ -16,7 +16,13 @@
   </div>
 
   <div class="row">
-    <div class="alert alert-success col-md-3" *ngIf="successRemoveCarMessage == true">
+    <div class="alert alert-success col-md-3" *ngIf="successInsertCarMessage == true">
+      Veículo adicionado com sucesso!
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="alert alert-danger col-md-3" *ngIf="successRemoveCarMessage == true">
       Veículo removido com sucesso!
     </div>
   </div>

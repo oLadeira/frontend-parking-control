@@ -4,14 +4,13 @@
 </div>
 <div class="modal-body">
 
-  <div class="alert alert-danger" >
-    <strong>Campo:</strong>  <br>
-    <strong>Erro:</strong>
+  <div class="alert alert-danger" *ngIf="error">
+    <strong>Erro:</strong> {{error.message}}
   </div>
 
-  <div class="alert alert-danger" >
+<!--   <div class="alert alert-danger" >
     <strong>Erro:</strong>  <br>
-  </div>
+  </div> -->
 
   <form #residentToParkingSpotForm="ngForm" (ngSubmit)="insertResidentToParkingSpot()">
 

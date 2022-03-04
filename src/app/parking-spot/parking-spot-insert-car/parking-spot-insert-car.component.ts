@@ -1,3 +1,5 @@
+import { Error } from './../../error';
+import { FieldError } from './../../fieldError';
 import { ResidentToParkingSpot } from './../residentToParkingSpot';
 import { ParkingSpotService } from './../../services/parking-spot.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +13,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ParkingSpotInsertCarComponent implements OnInit {
   residentToParkingSpot!:ResidentToParkingSpot
   parkingSpotNumber!:string;
+  error!:Error;
 
   constructor(public modal:NgbActiveModal, private parkingSpotService: ParkingSpotService) {
     this.residentToParkingSpot = new ResidentToParkingSpot();
@@ -24,8 +27,10 @@ export class ParkingSpotInsertCarComponent implements OnInit {
   insertResidentToParkingSpot(){
     this.parkingSpotService.insertCarParkingSpot(this.residentToParkingSpot)
     .subscribe(response => {
-
+      this.parkingSpotService.successInsertCarMessage.emit(true)
+      this.modal.close();
     },errorResponse => {
+      this.error = errorResponse.error
       console.log(errorResponse)
     })
   }
